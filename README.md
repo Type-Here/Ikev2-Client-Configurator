@@ -9,7 +9,7 @@ Usage:
 4. Enjoy.
 
 
-Exe created with https://github.com/MScholtes/PS2EXE![image](https://user-images.githubusercontent.com/94553428/203647160-760164a9-75b5-498e-820c-8621deb211ec.png)
+Exe created with https://github.com/MScholtes/PS2EXE
 (Many Thanks!)
 
 Note:
