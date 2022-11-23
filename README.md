@@ -1,2 +1,22 @@
 # Ikev2-Client-Configurator-Win-
 Set a more secure Ikev2/IPSec VPN connection in Windows. Compatible with strongswan. (EAP - Authentication)
+
+
+Usage:
+1. Open .exe file
+2. Import Certificate (Eg .pem certificate fro strongswan-pki)
+3. Set VPN Name and IP/Domain
+4. Enjoy.
+
+
+Exe created with https://github.com/MScholtes/PS2EXE![image](https://user-images.githubusercontent.com/94553428/203647160-760164a9-75b5-498e-820c-8621deb211ec.png)
+(Many Thanks!)
+
+Note:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
