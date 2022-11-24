@@ -46,6 +46,6 @@ Maybe more.
 It needs a lot of work to make it prettier and with more features but excluding this limitations it basically does its job.
 
 ##### Note to Users and Readers:
-Please let me know of any bugs or problems of any kind. 
-I'm not actually a developer so I have not much time to spend in this project. Feel free of fork and develop.
-For Experts: I just repeat: I'm NOT actually a developer so please be kind if any blunders or so. Thanks.
+Even though I do not work as a computer engineer and I have not much time to spend in this project, please let me know of any bugs or problems of any kind. 
+Feel free to fork and develop.
+For the experts: Please, be kind if any blunders. Thanks.
