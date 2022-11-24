@@ -43,7 +43,7 @@ Only EAP authentication.
 Not a really fancy shell.
 Maybe more.
 
-It needs a lot of work to make it prettier and with more features but excluding this limitations it basically does its job.
+It needs a lot of work to make it prettier and with more features but even with this limitations, it basically does the job.
 
 ##### Note to Users and Readers:
 Even though I do not work as a computer engineer and I have not much time to spend in this project, please let me know of any bugs or problems of any kind. 
