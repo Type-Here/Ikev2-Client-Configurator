@@ -1,6 +1,9 @@
 # Windows IKEv2 Vpn Client Configurator
 # By Type-Here (aka ManuEl)
 
+# GitHub Page:https://github.com/Type-Here/Ikev2-Client-Configurator
+# License: https://github.com/Type-Here/Ikev2-Client-Configurator/blob/main/LICENSE
+# (MIT License)
 
 # --------------------------------------------------------------------- #
 # Feel free to copy, modify, improve the code. Please, provide credits. 
@@ -13,6 +16,9 @@
 # Only use for Ikev2 VPN with EAP authentication. Compatible with StrongSwan.
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
+
+$host.ui.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
+$Host.UI.RawUI.BackgroundColor = "DarkBlue"
 
 # START #
 # Check if Admin
@@ -29,9 +35,9 @@ $adminRole = [System.Security.Principal.WindowsBuiltInRole]::Administrator;
 if ($myWindowsPrincipal.IsInRole($adminRole))
 {
     # We are running as an administrator, so change the title and background colour to indicate this
-    $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + "(Elevated)";
-    $Host.UI.RawUI.BackgroundColor = "DarkBlue";
-    Clear-Host;
+    $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + "(Elevated)"
+    $Host.UI.RawUI.BackgroundColor = "DarkBlue"
+    Clear-Host
 }
 else {
     # We are not running as an administrator, so relaunch as administrator
@@ -54,8 +60,8 @@ else {
 
 # ### Crea Nuova IKEv2 VPN ###
 
-Write-Host "Welcome, we're about to set a new Ikev2 VPN Client in Windows";
-Write-Host "-----";
+Write-Host "Welcome, we're about to set a new Ikev2 VPN Client in Windows"
+Write-Host "-----"
 $b= 0
 DO
 {
@@ -170,12 +176,13 @@ $path1 = 'HKLM:\SYSTEM\CurrentControlSet\Services\RasMan\Parameters'
 $regvalueName = 'NegotiateDH2048_AES256'
 
 try{
-     Get-ItemProperty -Path $path1 -Name $regvalueName
-	 Write-Host 'Security Registry Key already exists... skipping';
-
+	$get_regkey = Get-ItemProperty -Path $path1 -Name $regvalueName
+     if($get_regkey){
+		Write-Host 'Security Registry Key already exists... skipping';
+	 }
 }
  catch {
-     New-Item -Path $KeyPath -Force
+     New-Item -Path $path1 -Force
      New-ItemProperty -Path $path1 -Name $regvalueName -Value 2 -PropertyType DWord -Force
 	 Write-Host 'Security RegistryKey created.'
 
