@@ -17,7 +17,7 @@
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
 
-$host.ui.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
+$Host.ui.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
 $Host.UI.RawUI.BackgroundColor = "DarkBlue"
 
 # START #
@@ -61,7 +61,7 @@ else {
 # ### Crea Nuova IKEv2 VPN ###
 
 Write-Host "Welcome, we're about to set a new Ikev2 VPN Client in Windows"
-Write-Host "-----"
+Write-Host ' ----- '
 $b= 0
 DO
 {
@@ -105,9 +105,9 @@ DO
 			$cert_path= $dialog.FileName
 			Write-Host -NoNewLine $cert_path
 			Write-Host " selected"
-			Write-Host "Certificate will be imported. Press any key to confirm";
-			$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown");
-			Write-Host "-----"
+			Write-Host "Certificate will be imported. Press any key to confirm"
+			$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+			Write-Host ' ----- '
 			try{
 				# ----- Alternative Way 1 ------
 				# Import-Certificate -CertStoreLocation cert:\LocalMachine\Root\ -FilePath $cert_path
@@ -165,10 +165,10 @@ DO
 	}
 } Until ($a -eq 'ok')
 
-Write-Host " ----- "
+Write-Host ' ----- '
 Write-Host "Phase 2 - Creating a VPN "
 Write-Host "Press any key to continue... "
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown");
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 Write-Host "Creating Registry Key to enable DH2048_AES256..."
 
@@ -182,9 +182,15 @@ try{
 	 }
 }
  catch {
-     New-Item -Path $path1 -Force
+     New-Item -Path $path1 -Name $regvalueName -Force
      New-ItemProperty -Path $path1 -Name $regvalueName -Value 2 -PropertyType DWord -Force
-	 Write-Host 'Security RegistryKey created.'
+	 if($get_regkey)
+	 {	 
+		Write-Host 'Security Registry Key created.'
+	 } else {
+		 Write-Warning 'Some error occured: Registry Key not created.'
+	 }
+	 
 
  }
 Write-Host " ----- "
