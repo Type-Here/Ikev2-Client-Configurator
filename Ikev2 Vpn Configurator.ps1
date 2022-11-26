@@ -17,7 +17,8 @@
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
 
-$Host.UI.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
+$title_window = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here (aka ManuEL)'
+$Host.UI.RawUI.WindowTitle = $title_window
 $Host.UI.RawUI.BackgroundColor = "DarkBlue"
 
 # START #
@@ -35,7 +36,7 @@ $adminRole = [System.Security.Principal.WindowsBuiltInRole]::Administrator;
 if ($myWindowsPrincipal.IsInRole($adminRole))
 {
     # We are running as an administrator, so change the title and background colour to indicate this
-    $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + "(Elevated)"
+    $Host.UI.RawUI.WindowTitle = $title_window + ' [Elevated]'
     $Host.UI.RawUI.BackgroundColor = "DarkBlue"
     Clear-Host
 }
