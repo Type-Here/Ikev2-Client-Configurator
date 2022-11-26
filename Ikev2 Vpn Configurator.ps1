@@ -17,7 +17,7 @@
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
 
-$Host.ui.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
+$Host.UI.RawUI.WindowTitle = 'Windows IKEv2 Vpn Client Configurator -- By Type-Here'
 $Host.UI.RawUI.BackgroundColor = "DarkBlue"
 
 # START #
