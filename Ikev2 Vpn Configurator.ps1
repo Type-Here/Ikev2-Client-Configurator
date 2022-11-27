@@ -175,22 +175,24 @@ Write-Host "Creating Registry Key to enable DH2048_AES256..."
 
 $path1 = 'HKLM:\SYSTEM\CurrentControlSet\Services\RasMan\Parameters'
 $regvalueName = 'NegotiateDH2048_AES256'
-$ErrorActionPreference = "stop"
+$ErrorActionPreference = "Stop"
 
 try{
-	$get_regkey = Get-ItemProperty -Path $path1 -Name $regvalueName	
+	Get-ItemProperty -Path $path1 -Name $regvalueName	
 	Write-Host 'Security Registry Key already exists... skipping';
 }
  catch {
+	 $ErrorActionPreference = "Continue"
      New-Item -Path $path1 -Name $regvalueName -Force
      New-ItemProperty -Path $path1 -Name $regvalueName -Value 2 -PropertyType DWord -Force
-	 if($get_regkey)
+	 $get_regkey = Get-ItemProperty -Path $path1 -Name $regvalueName
+	 if ( $get_regkey.NegotiateDH2048_AES256 -eq '2' )
 	 {	 
 		Write-Host 'Security Registry Key created.'
 	 } else {
 		 Write-Warning 'Some error occured: Registry Key not created.'
 	 }
- } Finally { $ErrorActionPreference = "Continue" }
+ }
  
 Write-Host " ----- "
 Write-Host "Please enter VPN info: "
